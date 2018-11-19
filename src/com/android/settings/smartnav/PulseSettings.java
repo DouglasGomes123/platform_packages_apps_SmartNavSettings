@@ -30,8 +30,8 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.ListPreference;
 import android.provider.Settings;
 
-import com.invictrix.support.colorpicker.ColorPickerPreference;
-import com.invictrix.support.preferences.CustomSeekBarPreference;
+import com.android.settings.bliss.preference.ColorPickerPreference;
+import com.blissroms.blissify.preference.CustomSeekBarPreference;
 
 public class PulseSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

@@ -22,8 +22,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
-import com.invictrix.support.colorpicker.ColorPickerPreference;
-import com.invictrix.support.preferences.CustomSeekBarPreference;
+import com.android.settings.bliss.preference.ColorPickerPreference;
+import com.blissroms.blissify.preference.CustomSeekBarPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.utils.ActionConstants;
