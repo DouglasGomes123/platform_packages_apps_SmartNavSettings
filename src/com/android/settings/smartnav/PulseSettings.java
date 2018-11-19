@@ -378,16 +378,16 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
      private void resetValues() {
 	ContentResolver resolver = getActivity().getContentResolver();
-        Settings.System.putInt(getContentResolver(),
-                Settings.System.FLING_PULSE_LAVALAMP_COLOR_TO, DEFAULT_TO);
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_TO, DEFAULT_TO);
         mLavaLampColorTo.setNewPreviewColor(DEFAULT_TO);
         mLavaLampColorTo.setSummary(R.string.default_string);
-        Settings.System.putInt(getContentResolver(),
-                Settings.System.FLING_PULSE_LAVALAMP_COLOR_FROM, DEFAULT_FROM);
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_FROM, DEFAULT_FROM);
         mLavaLampColorFrom.setNewPreviewColor(DEFAULT_FROM);
         mLavaLampColorFrom.setSummary(R.string.default_string);
-        Settings.System.putInt(getContentResolver(),
-                Settings.System.FLING_PULSE_COLOR, DEFAULT);
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_PULSE_COLOR, DEFAULT);
         mPulseColor.setNewPreviewColor(DEFAULT);
         mPulseColor.setSummary(R.string.default_string);
     }
