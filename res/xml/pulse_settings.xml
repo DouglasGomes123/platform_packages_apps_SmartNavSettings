@@ -120,6 +120,13 @@
             android:dependency="pulse_fading_bars_category"/>
 
         <com.blissroms.blissify.preference.CustomSeekBarPreference
+            android:key="pulse_fading_blocks_opacity"
+            android:title="@string/pulse_fading_blocks_opacity"
+            android:max="255"
+            settings:min="0"
+            android:dependency="eos_fling_show_pulse" />
+
+        <com.blissroms.blissify.preference.CustomSeekBarPreference
             android:key="fling_pulse_lavalamp_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
