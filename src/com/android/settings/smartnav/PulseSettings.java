@@ -90,7 +90,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     CustomSeekBarPreference mFadingSpeed;
     CustomSeekBarPreference mSolidCount;
     CustomSeekBarPreference mSolidOpacity;
-	CustomSeekBarPreference mFadingOpacity;
+    CustomSeekBarPreference mFadingOpacity;
     CustomSeekBarPreference mNavButtonsOpacity;
 
     @Override
@@ -115,9 +115,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mAutoColor.setChecked(Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_AUTO_COLOR, 0, UserHandle.USER_CURRENT) == 1);
         mAutoColor.setOnPreferenceChangeListener(this);
-
-        // TODO: add this back when we have supporting framework
-        removePreference("pulse_auto_color");        
 
         PreferenceCategory fadingBarsCat = (PreferenceCategory)findPreference("pulse_fading_bars_category");
         fadingBarsCat.setEnabled(renderMode == RENDER_STYLE_FADING_BARS);
