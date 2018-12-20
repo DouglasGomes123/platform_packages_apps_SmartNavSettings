@@ -18,6 +18,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
+    <Preference 
+        android:key="bliss_logo"
+        android:layout="@layout/bliss_logo" />
+
     <SwitchPreference
         android:key="navbar_visibility"
         android:title="@string/navbar_visibility" />
@@ -49,7 +53,6 @@
                 android:key="default_settings"
                 android:title="@string/buttons_navbar_title"
                 android:summary="@string/buttons_navbar_summary"
-                android:icon="@drawable/ic_navbar"
                 android:fragment="com.blissroms.blissify.fragments.buttons.NavBar"
                 />
 
@@ -85,6 +88,27 @@
                 android:max="135"
                 settings:min="65"
                 settings:units="%" />
+
+    <PreferenceCategory
+        android:key="navigation_burnin"
+        android:title="@string/navigation_burnin_category"/>
+
+        <com.blissroms.blissify.preference.SystemSettingSwitchPreference
+            android:key="burn_in_protection"
+            android:title="@string/burn_in_protection_title"
+            android:summary="@string/burn_in_protection_summary"
+            android:dependency="navbar_visibility"
+            android:defaultValue="true" />
+
+         <com.blissroms.blissify.preference.CustomSeekBarPreference
+            android:key="burn_in_protection_interval"
+            android:title="@string/burn_in_protection_interval_title"
+            android:summary="@string/burn_in_protection_interval_summary"
+            android:max="90"
+            settings:min="45"
+            settings:units="@string/unit_x1000ms"
+            android:dependency="burn_in_protection" />
+
         <PreferenceScreen
             android:key="pulse_settings"
             android:title="@string/pulse_settings"

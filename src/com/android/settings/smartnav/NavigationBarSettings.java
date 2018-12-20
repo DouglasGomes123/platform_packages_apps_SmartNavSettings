@@ -55,6 +55,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_HEIGHT_PORT = "navbar_height_portrait";
     private static final String KEY_NAVIGATION_HEIGHT_LAND = "navbar_height_landscape";
     private static final String KEY_NAVIGATION_WIDTH = "navbar_width";
+    private static final String KEY_BURN_IN_INTERVAL = "burn_in_protection_interval";
     private static final String KEY_PULSE_SETTINGS = "pulse_settings";
 
     private SwitchPreference mNavbarVisibility;
@@ -68,6 +69,7 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     private CustomSeekBarPreference mBarHeightPort;
     private CustomSeekBarPreference mBarHeightLand;
     private CustomSeekBarPreference mBarWidth;
+    private CustomSeekBarPreference mBurnInterval;
     private PreferenceScreen mPulseSettings;
 
     @Override
@@ -90,6 +92,12 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
                 ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
         updateBarVisibleAndUpdatePrefs(showing);
         mNavbarVisibility.setOnPreferenceChangeListener(this);
+
+        int interval = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.BURN_IN_PROTECTION_INTERVAL, 60, UserHandle.USER_CURRENT);
+        mBurnInterval = (CustomSeekBarPreference) findPreference(KEY_BURN_IN_INTERVAL);
+        mBurnInterval.setValue(interval);
+        mBurnInterval.setOnPreferenceChangeListener(this);
 
         int mode = Settings.Secure.getInt(getContentResolver(), Settings.Secure.NAVIGATION_BAR_MODE,
                 0);
@@ -208,6 +216,11 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
             int val = (Integer) newValue;
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_WIDTH, val, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mBurnInterval) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.BURN_IN_PROTECTION_INTERVAL, val, UserHandle.USER_CURRENT);
             return true;
         }
         return false;
