@@ -45,10 +45,18 @@
             android:summary="@string/fling_settings_summary"
             android:fragment="com.android.settings.smartnav.FlingSettings" />
 
+     <PreferenceScreen
+                android:key="default_settings"
+                android:title="@string/buttons_navbar_title"
+                android:summary="@string/buttons_navbar_summary"
+                android:icon="@drawable/ic_navbar"
+                android:fragment="com.blissroms.blissify.fragments.buttons.NavBar"
+                />
+
         <Preference
-            android:key="default_settings"
-            android:title="@string/default_settings"
-            android:summary="@string/default_settings_summary"
+            android:key="swipeup_gesture_settings"
+            android:title="@string/swipe_up_to_switch_apps_title"
+            android:summary="@string/swipeup_settings_summary"
             android:fragment="com.android.settings.gestures.SwipeUpGestureSettings" />
 
     </PreferenceCategory>
